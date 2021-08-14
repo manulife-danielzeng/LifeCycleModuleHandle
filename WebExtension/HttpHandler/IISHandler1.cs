@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web;
 
-namespace LifeCycleModuleHandle
+namespace WebExtension.HttpHandler
 {
     public class IISHandler1 : IHttpHandler
     {

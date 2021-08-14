@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Web;
 
-namespace LifeCycleModuleHandle
+namespace WebExtension.HttpModule
 {
+    /// <summary>
+    /// write correspond event text to response body
+    /// </summary>
     public class LogModule : IHttpModule
     {
         static int LogModuleInstanceCount = 0;

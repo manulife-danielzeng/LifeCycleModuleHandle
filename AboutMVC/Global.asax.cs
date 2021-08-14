@@ -14,8 +14,17 @@ namespace AboutMVC
         {
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            //web form 和 mvc的区别就在于多了一个mvcHttpHandler来处理请求
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+        protected void Application_BeginRequest()
+        {
+            
+        }
+        public override void Init()
+        {
+            base.Init();
         }
     }
 }

@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WebExtension.HttpHandler;
 
-namespace LifeCycleModuleHandle
+namespace WebExtension
 {
     public class CustomHandlerFactory : IHttpHandlerFactory
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web;
 
-namespace LifeCycleModuleHandle
+namespace WebExtension.HttpModule
 {
     public class CustomModule : IHttpModule
     {
