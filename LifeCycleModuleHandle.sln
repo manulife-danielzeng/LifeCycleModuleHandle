@@ -9,7 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeCycleModuleHandle", "Li
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebExtension", "WebExtension\WebExtension.csproj", "{9FB9A60D-BF2B-4C61-9D02-B29DAF74B3B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWeb", "CoreWeb\CoreWeb.csproj", "{A85C6A13-1AD0-47A7-9CDE-F142238100F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreWeb", "CoreWeb\CoreWeb.csproj", "{A85C6A13-1AD0-47A7-9CDE-F142238100F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreConsoleApp", "CoreConsoleApp\CoreConsoleApp.csproj", "{F258841D-869A-48FB-B16A-3171BA1DDA27}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{A85C6A13-1AD0-47A7-9CDE-F142238100F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A85C6A13-1AD0-47A7-9CDE-F142238100F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A85C6A13-1AD0-47A7-9CDE-F142238100F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F258841D-869A-48FB-B16A-3171BA1DDA27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F258841D-869A-48FB-B16A-3171BA1DDA27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F258841D-869A-48FB-B16A-3171BA1DDA27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F258841D-869A-48FB-B16A-3171BA1DDA27}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
