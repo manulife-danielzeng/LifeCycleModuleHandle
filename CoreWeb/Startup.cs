@@ -4,10 +4,13 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Primitives;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Text.Encodings;
+using System.Text;
 
 namespace CoreWeb
 {
@@ -43,6 +46,24 @@ namespace CoreWeb
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.Use((next) => {
+                return (httpcontext) => {
+                    if (httpcontext.Request.Headers.TryGetValue("x-api-key", out StringValues key) && key.ToString() == "xxx")
+                    {
+                        httpcontext.Request.Headers.Add("validRequest", "true");
+                        return next(httpcontext);
+                    }
+                    else
+                    {
+                        httpcontext.Request.Headers.Add("validRequest", "false");
+                        httpcontext.Response.StatusCode = 401;
+                        string message = "missing x-api-key";
+                        var buff = UTF8Encoding.GetEncoding("utf-8").GetBytes(message);
+                        httpcontext.Response.Body.WriteAsync(buff);
+                        return Task.CompletedTask;
+                    }
+                };
+            });
 
             app.UseAuthorization();
 
