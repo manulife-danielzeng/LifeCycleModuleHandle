@@ -46,23 +46,41 @@ namespace CoreWeb
             app.UseStaticFiles();
 
             app.UseRouting();
-            app.Use((next) => {
-                return (httpcontext) => {
-                    if (httpcontext.Request.Headers.TryGetValue("x-api-key", out StringValues key) && key.ToString() == "xxx")
-                    {
-                        httpcontext.Request.Headers.Add("validRequest", "true");
-                        return next(httpcontext);
-                    }
-                    else
-                    {
-                        httpcontext.Request.Headers.Add("validRequest", "false");
-                        httpcontext.Response.StatusCode = 401;
-                        string message = "missing x-api-key";
-                        var buff = UTF8Encoding.GetEncoding("utf-8").GetBytes(message);
-                        httpcontext.Response.Body.WriteAsync(buff);
-                        return Task.CompletedTask;
-                    }
-                };
+            //add middleware way 1:
+            //app.Use((next) => {
+            //    return (httpcontext) => {
+            //        if (httpcontext.Request.Headers.TryGetValue("x-api-key", out StringValues key) && key.ToString() == "xxx")
+            //        {
+            //            httpcontext.Request.Headers.Add("validRequest", "true");
+            //            return next(httpcontext);
+            //        }
+            //        else
+            //        {
+            //            httpcontext.Request.Headers.Add("validRequest", "false");
+            //            httpcontext.Response.StatusCode = 401;
+            //            string message = "missing x-api-key";
+            //            var buff = UTF8Encoding.GetEncoding("utf-8").GetBytes(message);
+            //            httpcontext.Response.Body.WriteAsync(buff);
+            //            return Task.CompletedTask;
+            //        }
+            //    };
+            //});
+            //add middleware way 2:
+            app.Use(async (context, next) =>
+            {
+                if (context.Request.Headers.TryGetValue("x-api-key", out StringValues key) && key.ToString() == "xxx")
+                {
+                    context.Request.Headers.Add("validRequest", "true");
+                    await next.Invoke();
+                }
+                else
+                {
+                    context.Request.Headers.Add("validRequest", "false");
+                    context.Response.StatusCode = 401;
+                    string message = "missing x-api-key";
+                    var buff = UTF8Encoding.GetEncoding("utf-8").GetBytes(message);
+                    await context.Response.Body.WriteAsync(buff);
+                }
             });
 
             app.UseAuthorization();
