@@ -1,0 +1,18 @@
+Frontend 
+ -A completed project structure
+ -Webpack
+ -React
+ -Javascript javascript.into
+Backend
+ -Nodejs
+  -A completed project structure
+ -.Net5
+  -A completed project structure
+  -The news of each C# version
+  -ConfigurationProvider
+Redis
+Clean architecture
+ -How to build a project structure
+Operating systems
+Docker
+Github action
