@@ -13,6 +13,13 @@ Backend
 Redis
 Clean architecture
  -How to build a project structure
+ 1. 不依赖框架。架构不依赖功能装载软件库的存在。这允许你把框架作为工具使用，
+	而不是把你的系统塞进他们的有限的约束中。
+ 2. 可测试。业务规则可以在没有用户界面，数据库，web服务器或者任意外部元素的情况下测试。
+ 3. 不依赖UI. UI可以很容易的更改，而不用更改系统的剩余部分。
+     Web UI可以用console UI替换，不用更改业务逻辑。
+
+
 Operating systems
 Docker
 Github action
