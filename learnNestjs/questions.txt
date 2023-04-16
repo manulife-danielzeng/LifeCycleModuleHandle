@@ -14,3 +14,7 @@ https://docs.nestjs.com/modules#global-modules
 https://docs.nestjs.com/modules#module-re-exporting
 
 问题5： 模块中不提供其他的方法吗？
+
+Q6: 
+
+M1 provides service1, M2 importted M1, provides service2, service2 require service1, let's say service3 of M3 depend on service2, do M3 needs to import M1?
